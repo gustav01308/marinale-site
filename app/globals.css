@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-corpo text-base text-gray-900 antialiased;
+  }
+
+  /* h1-h4 usam Barlow Condensed automaticamente */
+  h1, h2, h3, h4 {
+    @apply font-titulo font-bold text-marinale-azul;
+  }
+
+  h1 { @apply text-4xl leading-tight md:text-5xl; }
+  h2 { @apply text-3xl leading-tight md:text-4xl; }
+  h3 { @apply text-2xl leading-snug md:text-3xl; }
+  h4 { @apply text-xl leading-snug md:text-2xl; }
+
+  a { @apply transition-colors; }
+}
+
+@layer components {
+  .section { @apply py-12 md:py-20; }
+  .section-tight { @apply py-8 md:py-12; }
+
+  /* Prosa de blog e texto corrido */
+  .prose-marinale h2 { @apply mb-4 mt-8 text-2xl md:text-3xl; }
+  .prose-marinale h3 { @apply mb-3 mt-6 text-xl md:text-2xl; }
+  .prose-marinale p  { @apply mb-4 leading-relaxed text-gray-700; }
+  .prose-marinale ul { @apply mb-4 list-disc space-y-1 pl-6 text-gray-700; }
+  .prose-marinale a  { @apply text-marinale-verde underline; }
+
+  /* Badge amarelo reutilizável */
+  .badge-amarelo {
+    @apply inline-block rounded-full bg-marinale-amarelo px-4 py-1 font-titulo text-sm font-bold uppercase text-marinale-azul;
+  }
+}
+
+/* ─── Keyframes globais ─────────────────────────────────────── */
+
+/* Carrossel de marcas — animação CSS pura */
+@keyframes scrollBrands {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Pulse suave para o botão flutuante do WhatsApp — repete a cada 3s */
+@keyframes pulse-wp {
+  0%,  70%, 100% { box-shadow: 0 0 0 0   rgba(37, 211, 102, 0.55); }
+  35%            { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+}
+
+/* ─── Utilitários de animação ───────────────────────────────── */
+
+/* Botão flutuante WhatsApp: pulsa a cada 3s */
+.animate-pulse-wp {
+  animation: pulse-wp 3s ease-out infinite;
+}
+
+/* Ocultar barra de scroll nativa (carrosseis de scroll) */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Faixa de marcas — animação CSS com pausa no hover e no drag */
+.brands-track {
+  display: flex;
+  animation: scrollBrands 30s linear infinite;
+  width: max-content;
+  cursor: grab;
+}
+.brands-track:hover {
+  animation-play-state: paused;
+}
+.brands-track.dragging {
+  cursor: grabbing;
+  animation-play-state: paused;
+}
