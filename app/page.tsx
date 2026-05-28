@@ -4,8 +4,6 @@ import type { Metadata } from 'next';
 import CTAButton from '@/components/CTAButton';
 import ServicosCarousel from '@/components/ServicosCarousel';
 import AvaliacoesCarousel from '@/components/AvaliacoesCarousel';
-import MarcasCarousel from '@/components/MarcasCarousel';
-import DiferenciaisCarousel from '@/components/DiferenciaisCarousel';
 import { generateMetadata as buildMetadata, BUSINESS_INFO } from '@/lib/seo';
 import { servicos } from '@/lib/servicos';
 import { getAllPosts, type BlogPost } from '@/lib/blog';
@@ -64,27 +62,11 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 animate-bounce">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="h-8 w-8 text-white/60"
-            aria-hidden="true"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
       </section>
 
-      {/* ───────── 2. FAIXA DIFERENCIAIS (drag-to-scroll, sem setas) ─── */}
-      <section className="border-y border-gray-200 bg-white py-5">
-        <DiferenciaisCarousel />
-      </section>
+      <div style={{ background: 'linear-gradient(to bottom, #1a1f5e, #ffffff)', height: '80px' }} />
 
-      {/* ───────── 3. POR QUE ESCOLHER A MARINALE ────────────────────── */}
+      {/* ───────── 2. POR QUE ESCOLHER A MARINALE ────────────────────── */}
       <section className="section bg-white">
         <div className="container mx-auto grid items-center gap-12 lg:grid-cols-2">
           <div className="relative h-[420px] overflow-hidden rounded-xl shadow-md">
@@ -153,15 +135,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ───────── 5. MARCAS QUE ATENDEMOS (faixa sem bordas) ──────── */}
-      <section className="overflow-hidden bg-marinale-cinza py-10">
-        <div className="container mx-auto mb-8 text-center">
-          <h2>Marcas que atendemos</h2>
-        </div>
-        <MarcasCarousel />
-      </section>
-
-      {/* ───────── 6. AVALIAÇÕES DOS CLIENTES (fundo branco) ────────── */}
+      {/* ───────── 5. AVALIAÇÕES DOS CLIENTES (fundo branco) ────────── */}
       <section className="section bg-white">
         <div className="container mx-auto">
           <div className="mb-10 text-center">

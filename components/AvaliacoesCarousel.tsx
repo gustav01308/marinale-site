@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-// 20 avaliações reais do Google
-const avaliacoes = [
+type Avaliacao = { nome: string; texto: string };
+
+const avaliacoes: Avaliacao[] = [
   { nome: 'Matheus Medeiros',           texto: 'Melhor oficina geral da região, trabalho honesto, muito bom!!' },
   { nome: 'Igor Hess',                  texto: 'Com certeza a melhor oficina de Florianópolis, ótimo serviço e atendimento.' },
   { nome: 'Geancarlo Camargo',          texto: 'Serviço de primeira no bairro Trindade, recomendo a oficina. Preço justo e ótimo atendimento.' },
@@ -29,64 +30,123 @@ const avaliacoes = [
 const ITEMS_POR_PAGINA = 4;
 
 export default function AvaliacoesCarousel() {
-  const [pagina, setPagina] = useState(0);
-  const totalPaginas = Math.ceil(avaliacoes.length / ITEMS_POR_PAGINA);
-  const visiveis = avaliacoes.slice(
-    pagina * ITEMS_POR_PAGINA,
-    (pagina + 1) * ITEMS_POR_PAGINA,
-  );
+  const slidesArray: Avaliacao[][] = [];
+  for (let i = 0; i < avaliacoes.length; i += ITEMS_POR_PAGINA) {
+    slidesArray.push(avaliacoes.slice(i, i + ITEMS_POR_PAGINA));
+  }
 
-  const anterior = () => setPagina((p) => Math.max(0, p - 1));
-  const proximo  = () => setPagina((p) => Math.min(totalPaginas - 1, p + 1));
+  // Clona último slide ao início e primeiro ao fim para loop infinito sem salto visível
+  const slides = [
+    slidesArray[slidesArray.length - 1],
+    ...slidesArray,
+    slidesArray[0],
+  ];
+  const total = slides.length;
+
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  useEffect(() => {
+    if (currentIndex === 0) {
+      const t = setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(slidesArray.length);
+      }, 300);
+      return () => clearTimeout(t);
+    }
+    if (currentIndex === total - 1) {
+      const t = setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(1);
+      }, 300);
+      return () => clearTimeout(t);
+    }
+  }, [currentIndex, total, slidesArray.length]);
+
+  // Reativa transição após salto silencioso para o slide real
+  useEffect(() => {
+    if (!isTransitioning) {
+      const t = setTimeout(() => setIsTransitioning(true), 50);
+      return () => clearTimeout(t);
+    }
+  }, [isTransitioning]);
+
+  const goNext = () => {
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const goPrev = () => {
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+  };
+
+  const goToSlide = (i: number) => {
+    setIsTransitioning(true);
+    setCurrentIndex(i + 1);
+  };
+
+  const activeDot = (currentIndex - 1 + slidesArray.length) % slidesArray.length;
 
   return (
     <div>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {visiveis.map((av, i) => (
-          <ReviewCard key={`${pagina}-${i}`} nome={av.nome} texto={av.texto} />
-        ))}
+      <div className="overflow-hidden">
+        <div
+          className="flex"
+          style={{
+            width: `${total * 100}%`,
+            transform: `translateX(-${currentIndex * (100 / total)}%)`,
+            transition: isTransitioning ? 'transform 300ms ease-in-out' : 'none',
+          }}
+        >
+          {slides.map((slide, idx) => (
+            <div key={idx} style={{ width: `${100 / total}%` }}>
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {slide.map((av, i) => (
+                  <ReviewCard key={`${idx}-${i}`} nome={av.nome} texto={av.texto} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {totalPaginas > 1 && (
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <button
-            onClick={anterior}
-            disabled={pagina === 0}
-            aria-label="Avaliações anteriores"
-            className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-marinale-azul text-marinale-azul transition-colors hover:bg-marinale-azul hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+      <div className="mt-8 flex items-center justify-center gap-4">
+        <button
+          onClick={goPrev}
+          aria-label="Avaliações anteriores"
+          className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-marinale-azul text-marinale-azul transition-colors hover:bg-marinale-azul hover:text-white"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
 
-          <div className="flex gap-2" role="tablist" aria-label="Páginas de avaliações">
-            {Array.from({ length: totalPaginas }, (_, i) => (
-              <button
-                key={i}
-                onClick={() => setPagina(i)}
-                role="tab"
-                aria-selected={pagina === i}
-                aria-label={`Página ${i + 1} de ${totalPaginas}`}
-                className={`h-3 rounded-full transition-all ${
-                  pagina === i ? 'w-6 bg-marinale-azul' : 'w-3 bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={proximo}
-            disabled={pagina === totalPaginas - 1}
-            aria-label="Próximas avaliações"
-            className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-marinale-azul text-marinale-azul transition-colors hover:bg-marinale-azul hover:text-white disabled:cursor-not-allowed disabled:opacity-30"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+        <div className="flex gap-2" role="tablist" aria-label="Páginas de avaliações">
+          {slidesArray.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goToSlide(i)}
+              role="tab"
+              aria-selected={activeDot === i}
+              aria-label={`Página ${i + 1} de ${slidesArray.length}`}
+              className={`h-3 rounded-full transition-all ${
+                activeDot === i ? 'w-6 bg-marinale-azul' : 'w-3 bg-gray-300 hover:bg-gray-400'
+              }`}
+            />
+          ))}
         </div>
-      )}
+
+        <button
+          onClick={goNext}
+          aria-label="Próximas avaliações"
+          className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-marinale-azul text-marinale-azul transition-colors hover:bg-marinale-azul hover:text-white"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
 
       <div className="mt-10 flex justify-center">
         <a
@@ -102,14 +162,12 @@ export default function AvaliacoesCarousel() {
   );
 }
 
-// Card: [Nome + ícone G à direita] → [Estrelas] → [Texto com clamp]
 function ReviewCard({ nome, texto }: { nome: string; texto: string }) {
   return (
     <article
       className="flex flex-col rounded-xl bg-white p-6 shadow-sm"
       style={{ height: '200px', border: '1px solid #e8e8e8' }}
     >
-      {/* 1. Nome + ícone Google à direita */}
       <div className="flex items-start justify-between gap-2">
         <p
           className="font-titulo font-bold uppercase tracking-wide text-[#1a1f5e]"
@@ -120,14 +178,12 @@ function ReviewCard({ nome, texto }: { nome: string; texto: string }) {
         <GoogleGIcon />
       </div>
 
-      {/* 2. Estrelas */}
       <div className="mt-2 flex gap-0.5" aria-label="5 estrelas">
         {Array.from({ length: 5 }, (_, i) => (
           <StarIcon key={i} className="h-4 w-4 text-[#f5a623]" />
         ))}
       </div>
 
-      {/* 3. Texto com clamp de 4 linhas */}
       <p
         className="mt-3 font-corpo leading-relaxed text-[#4a4a4a]"
         style={{
