@@ -5,20 +5,21 @@ import CTAButton from '@/components/CTAButton';
 import { generateMetadata as buildMetadata, SITE_URL } from '@/lib/seo';
 import { getAllSlugs, getPostBySlug } from '@/lib/blog';
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 // Geração estática de cada post de blog.
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) {
     return buildMetadata({
       title: 'Post não encontrado | Mecânica Marinale',
       description: 'O post que você procura não está disponível.',
-      path: `/blog/${params.slug}`,
+      path: `/blog/${slug}`,
     });
   }
   return buildMetadata({
@@ -31,8 +32,9 @@ export function generateMetadata({ params }: Props): Metadata {
   });
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) notFound();
 
   const articleJsonLd = {
