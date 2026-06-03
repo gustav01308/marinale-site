@@ -8,6 +8,14 @@ export type Servico = {
   icone: string;
 };
 
+const beneficios = [
+  'Diagnóstico rápido',
+  'Mão de obra especializada',
+  'Serviço com qualidade e garantia',
+  'Atendimento honesto e transparente',
+  'Orçamento detalhado antes de executar',
+];
+
 export const servicos: Servico[] = [
   {
     slug: 'mecanica-geral',
@@ -15,12 +23,7 @@ export const servicos: Servico[] = [
     resumo: 'Diagnóstico completo e reparos em todas as marcas de veículos leves.',
     descricao:
       'Atendemos qualquer marca ou modelo com diagnóstico preciso, peças de qualidade e mão de obra experiente. São mais de 35 anos cuidando de carros em Florianópolis.',
-    beneficios: [
-      'Diagnóstico rápido',
-      'Mão de obra especializada',
-      'Peças com garantia',
-      'Atendimento honesto e transparente',
-    ],
+    beneficios,
     icone: '🔧',
   },
   {
@@ -29,12 +32,7 @@ export const servicos: Servico[] = [
     resumo: 'Mantenha o carro sempre em dia e evite gastos maiores no futuro.',
     descricao:
       'A revisão periódica é o melhor investimento para a saúde do seu veículo. Inspecionamos itens críticos e indicamos apenas o que realmente precisa.',
-    beneficios: [
-      'Checklist completo de itens críticos',
-      'Avaliação de freios, suspensão e elétrica',
-      'Relatório transparente',
-      'Orçamento sem compromisso',
-    ],
+    beneficios,
     icone: '🛠️',
   },
   {
@@ -43,12 +41,7 @@ export const servicos: Servico[] = [
     resumo: 'Reparo e troca de freios, amortecedores, molas, buchas e bandejas.',
     descricao:
       'Seu carro precisa parar bem e absorver o solo com segurança. Cuidamos do sistema de freios e da suspensão com peças de qualidade e geometria precisa.',
-    beneficios: [
-      'Pastilhas e discos de freio',
-      'Amortecedores e molas',
-      'Alinhamento e balanceamento',
-      'Geometria de suspensão',
-    ],
+    beneficios,
     icone: '🛞',
   },
   {
@@ -57,12 +50,7 @@ export const servicos: Servico[] = [
     resumo: 'Retífica, reparos e manutenção completa de motores.',
     descricao:
       'Do simples reparo à retífica completa, oferecemos serviços de motor com garantia e equipamentos modernos para diagnóstico preciso.',
-    beneficios: [
-      'Retífica de cabeçote',
-      'Troca de correia dentada',
-      'Reparo de juntas',
-      'Análise de compressão',
-    ],
+    beneficios,
     icone: '⚙️',
   },
   {
@@ -71,12 +59,7 @@ export const servicos: Servico[] = [
     resumo: 'Diagnóstico por scanner, limpeza de bicos e correção de falhas.',
     descricao:
       'Equipamentos atualizados para identificar erros, falhas intermitentes e problemas de injeção em qualquer veículo nacional ou importado.',
-    beneficios: [
-      'Scanner automotivo de última geração',
-      'Limpeza de bicos injetores',
-      'Calibração de sensores',
-      'Correção de falhas eletrônicas',
-    ],
+    beneficios,
     icone: '💡',
   },
   {
@@ -85,12 +68,7 @@ export const servicos: Servico[] = [
     resumo: 'Especialistas há mais de 35 anos em escapamentos para todas as marcas.',
     descricao:
       'Solda, reparo, troca e adaptação de escapamentos com peças nacionais e importadas. Atendimento para particulares com qualidade e garantia.',
-    beneficios: [
-      'Soldas reforçadas com garantia',
-      'Peças nacionais e importadas',
-      'Diagnóstico rápido de ruído',
-      'Mais de 35 anos de experiência',
-    ],
+    beneficios,
     icone: '🚗',
   },
   {
@@ -99,12 +77,7 @@ export const servicos: Servico[] = [
     resumo: 'Troca de óleo e filtros com produtos de qualidade para todas as marcas.',
     descricao:
       'A troca de óleo é a manutenção mais importante do motor. Utilizamos óleos sintéticos e minerais de qualidade, de acordo com a recomendação do fabricante do seu veículo.',
-    beneficios: [
-      'Óleos sintéticos e minerais',
-      'Filtros originais e alternativos de qualidade',
-      'Prazo respeitado',
-      'Verificação gratuita de outros fluidos',
-    ],
+    beneficios,
     icone: '🛢️',
   },
   {
@@ -114,12 +87,7 @@ export const servicos: Servico[] = [
       'Troca de filtros de ar, combustível, óleo e cabine — mais desempenho e proteção para o seu motor.',
     descricao:
       'Os filtros são responsáveis por proteger o motor e garantir o conforto dos passageiros. A troca regular é essencial para o bom funcionamento do veículo. Fazemos a troca de todos os tipos: Filtro de Ar (impede poeira e partículas no motor), Filtro de Combustível (protege a injeção retendo impurezas), Filtro de Óleo (retém resíduos metálicos protegendo as peças internas) e Filtro de Cabine (filtra o ar interno do veículo, eliminando fungos e bactérias com higienização bactericida).',
-    beneficios: [
-      'Filtro de ar — mais desempenho e economia',
-      'Filtro de combustível — protege os bicos injetores',
-      'Filtro de óleo — trocado junto com o óleo do motor',
-      'Filtro de cabine com higienização bactericida incluída',
-    ],
+    beneficios,
     icone: '🌬️',
   },
   {
@@ -129,12 +97,7 @@ export const servicos: Servico[] = [
       'Substituição preventiva da correia dentada e tensores para evitar danos sérios ao motor.',
     descricao:
       'A correia dentada sincroniza o movimento das válvulas com o pistão do motor. Quando ela rompe ou desgasta, o motor pode sofrer danos irreversíveis e caros. Realizamos a substituição preventiva da correia, tensores e bomba d\'água conforme o manual do fabricante, garantindo a integridade do motor.',
-    beneficios: [
-      'Substituição dentro do prazo do fabricante',
-      'Troca de tensores e rolos junto com a correia',
-      'Bomba d\'água verificada e substituída se necessário',
-      'Evita danos graves e custosos ao motor',
-    ],
+    beneficios,
     icone: '⛓️',
   },
   {
@@ -143,12 +106,7 @@ export const servicos: Servico[] = [
     resumo: 'Manutenção do radiador, mangueiras, termostato e fluido de arrefecimento.',
     descricao:
       'O sistema de arrefecimento mantém o motor na temperatura ideal de funcionamento. Superaquecimento pode causar danos graves em poucos minutos. Realizamos inspeção completa do radiador, mangueiras, termostato, reservatório e fluido, identificando vazamentos e prevenindo falhas antes que comprometam o motor.',
-    beneficios: [
-      'Troca e flush do fluido de arrefecimento',
-      'Inspeção e substituição de mangueiras',
-      'Verificação do termostato e tampa do radiador',
-      'Diagnóstico de vazamentos e superaquecimento',
-    ],
+    beneficios,
     icone: '🌡️',
   },
   {
@@ -158,12 +116,7 @@ export const servicos: Servico[] = [
       'Diagnóstico e troca de amortecedores para mais segurança e conforto na direção.',
     descricao:
       'Amortecedores desgastados comprometem a estabilidade do veículo, aumentam a distância de frenagem e causam desgaste irregular nos pneus. Fazemos o diagnóstico completo do sistema de suspensão e trocamos os amortecedores com peças de qualidade e garantia de serviço.',
-    beneficios: [
-      'Diagnóstico completo da suspensão',
-      'Troca de amortecedores dianteiros e traseiros',
-      'Batentes e coxins verificados',
-      'Mais segurança, conforto e estabilidade',
-    ],
+    beneficios,
     icone: '🔩',
   },
   {
@@ -172,12 +125,7 @@ export const servicos: Servico[] = [
     resumo: 'Troca e regulagem de embreagem para veículos com câmbio manual.',
     descricao:
       'Disco, platô e rolamento de embreagem — substituímos todo o conjunto com peças de qualidade e garantia, devolvendo o conforto e desempenho ao seu carro.',
-    beneficios: [
-      'Troca do kit completo de embreagem',
-      'Regulagem e ajuste fino',
-      'Peças originais e alternativas',
-      'Garantia de serviço',
-    ],
+    beneficios,
     icone: '🔗',
   },
 ];

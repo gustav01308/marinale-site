@@ -109,6 +109,18 @@ export default function ServicoPage({ servico }: Props) {
                 Falar agora
               </CTAButton>
             </div>
+            <div className="mt-8 overflow-hidden rounded-xl">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.9!2d-48.5495!3d-27.5969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95273900000000%3A0x0!2sR.+Lauro+Linhares%2C+1693+-+Trindade%2C+Florian%C3%B3polis+-+SC!5e0!3m2!1spt-BR!2sbr!4v1"
+                width="100%"
+                height="220"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização da Mecânica Marinale"
+              />
+            </div>
           </aside>
         </div>
       </section>

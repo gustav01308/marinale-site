@@ -64,8 +64,6 @@ export default function HomePage() {
 
       </section>
 
-      <div style={{ background: 'linear-gradient(to bottom, #1a1f5e, #ffffff)', height: '80px' }} />
-
       {/* ───────── 2. POR QUE ESCOLHER A MARINALE ────────────────────── */}
       <section className="section bg-white">
         <div className="container mx-auto grid items-center gap-12 lg:grid-cols-2">
@@ -80,17 +78,13 @@ export default function HomePage() {
 
           <div>
             <span className="badge-amarelo">Por que escolher a Marinale</span>
-            <h2 className="mt-4">Mais de 35 anos de confiança em Florianópolis</h2>
-            <p className="mt-4 font-corpo text-lg text-gray-600">
-              Uma oficina que você indica para a família. Mecanicamente séria,
-              humana no atendimento.
-            </p>
+            <h2 className="mt-4">Transparência do diagnóstico até a entrega do carro</h2>
             <ul className="mt-6 space-y-4">
               {[
                 'Mais de 35 anos atendendo em Florianópolis',
-                'Diagnóstico rápido e orçamento sem compromisso',
-                'Mecânicos honestos e especializados',
-                'Peças originais e paralelas com garantia',
+                'Diagnóstico rápido e peças de primeira linha',
+                'Serviço com qualidade e garantia',
+                'Honestidade e profissionalismo em cada atendimento',
                 'Agendamento rápido pelo WhatsApp',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 font-corpo text-gray-700">

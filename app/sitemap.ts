@@ -3,6 +3,8 @@ import { SITE_URL } from '@/lib/seo';
 import { servicos } from '@/lib/servicos';
 import { getAllPosts } from '@/lib/blog';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 

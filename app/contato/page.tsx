@@ -21,11 +21,6 @@ export default function ContatoPage() {
           <div>
             <span className="badge-amarelo">Fale conosco</span>
             <h1 className="mt-4">Entre em contato</h1>
-            <p className="mt-4 font-corpo text-lg text-gray-700">
-              Estamos prontos para atender você de segunda a sexta. O canal mais
-              rápido é o WhatsApp.
-            </p>
-
             <dl className="mt-8 space-y-5 font-corpo">
               <Info label="WhatsApp / Telefone">
                 <a
@@ -61,16 +56,17 @@ export default function ContatoPage() {
           </div>
 
           {/* Mapa */}
-          <div className="overflow-hidden rounded-xl shadow-md">
+          <div className="overflow-hidden rounded-xl shadow-md" style={{ minHeight: '400px' }}>
             <iframe
-              src="https://www.google.com/maps?q=Rua+Lauro+Linhares,+1693+-+Trindade,+Florianópolis+-+SC&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.9!2d-48.5495!3d-27.5969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95273900000000%3A0x0!2sR.+Lauro+Linhares%2C+1693+-+Trindade%2C+Florian%C3%B3polis+-+SC!5e0!3m2!1spt-BR!2sbr!4v1"
               width="100%"
-              height="450"
+              height="100%"
               style={{ border: 0 }}
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full min-h-[400px] rounded-2xl"
               title="Mapa da Mecânica Marinale"
-              allowFullScreen
             />
           </div>
         </div>

@@ -48,8 +48,7 @@ export default function EscapamentosCatalisadoresPage() {
             Escapamentos e catalisadores em Florianópolis
           </h1>
           <p className="mt-5 font-corpo text-lg text-white/80">
-            Grande estoque de peças nacionais e importadas, soldas com garantia
-            e equipe especializada para resolver o seu problema no mesmo dia.
+            Grande estoque de peças nacionais, instalação com garantia e equipe especializada para resolver o seu problema no mesmo dia.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <CTAButton buttonLocation="escapamentos-hero" size="lg">
@@ -71,9 +70,9 @@ export default function EscapamentosCatalisadoresPage() {
             {[
               {
                 icon: '🔧',
-                titulo: 'Reparo e solda',
+                titulo: 'Estoque Próprio de Peças',
                 texto:
-                  'Soldas reforçadas com garantia. Resolvemos vazamentos, rachaduras e ruídos de escapamento sem necessidade de troca completa.',
+                  'Temos estoque próprio de escapamentos e catalisadores. Sem esperar pedido — resolvemos seu problema na hora.',
               },
               {
                 icon: '🔄',

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import CTAButton from '@/components/CTAButton';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generateMetadata as buildMetadata } from '@/lib/seo';
@@ -16,32 +17,48 @@ export default function SobrePage() {
       <Breadcrumbs items={[{ label: 'Início', href: '/' }, { label: 'Sobre', href: '/sobre' }]} />
       <section className="section">
         <div className="container mx-auto max-w-3xl">
-          <span className="badge-amarelo">Nossa história</span>
+          <span className="badge-amarelo">NOSSA HISTÓRIA</span>
           <h1 className="mt-4">Sobre a Mecânica Marinale</h1>
-          <div className="prose-marinale mt-6">
+          <div className="mt-6 space-y-4 font-corpo text-lg text-gray-700">
             <p>
-              Há mais de 35 anos, a Mecânica Marinale atende motoristas em
-              Florianópolis com a mesma filosofia: atendimento honesto, mão de
-              obra qualificada e respeito ao bolso do cliente.
+              Desde 1989, a Mecânica Marinale atende motoristas de Florianópolis com um compromisso que não muda: fazer o certo pelo cliente, sempre.
             </p>
             <p>
-              Localizada na Trindade, próxima à UFSC, atendemos veículos de
-              todas as marcas. Nossa principal especialidade são os escapamentos
-              e catalisadores, mas oferecemos toda a gama de serviços de
-              mecânica geral, freios, suspensão, motor e injeção eletrônica.
+              Somos uma oficina multimarcas com foco em mecânica geral, escapamentos e catalisadores. Em mais de 35 anos de estrada, construímos nossa reputação no boca a boca — clientes que chegaram uma vez e nunca mais foram embora.
             </p>
-            <h2>Nosso compromisso</h2>
-            <p>
-              Acreditamos que confiança se constrói na transparência. Por isso
-              oferecemos diagnóstico rápido, mostramos o problema e
-              explicamos a solução antes de qualquer serviço.
+          </div>
+
+          {/* TODO: substituir por foto real da oficina — elevadores */}
+          <div className="mt-8 relative h-[250px] md:h-[400px] w-full overflow-hidden rounded-xl">
+            <Image
+              src="/imagens/imagem-mecanico.jpg"
+              alt="Oficina Mecânica Marinale"
+              fill
+              className="object-cover object-center"
+            />
+          </div>
+
+          <div className="mt-12">
+            <h2 className="text-2xl">Como trabalhamos</h2>
+            <p className="mt-3 font-corpo text-lg text-gray-700">
+              Sabemos que levar o carro à oficina gera desconfiança. Por isso criamos um processo transparente, do início ao fim:
             </p>
-            <ul>
-              <li>Diagnóstico rápido</li>
-              <li>Orçamento sem compromisso</li>
-              <li>Peças com garantia</li>
-              <li>Mão de obra especializada</li>
-            </ul>
+            <ol className="mt-6 space-y-4">
+              {[
+                'Escutamos o que você percebeu no carro',
+                'Abrimos sua ficha e enviamos o carro para diagnóstico',
+                'Enviamos fotos e vídeos do que encontramos',
+                'Você recebe orçamento detalhado e só aprovando executamos',
+                'Entregamos com garantia e pós-venda profissional',
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-4 font-corpo text-gray-700">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-marinale-amarelo font-titulo text-sm font-bold text-marinale-azul">
+                    {i + 1}
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ol>
           </div>
 
           <div className="mt-10">
