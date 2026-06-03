@@ -58,7 +58,7 @@ export const servicos: Servico[] = [
     titulo: 'Injeção Eletrônica',
     resumo: 'Diagnóstico por scanner, limpeza de bicos e correção de falhas.',
     descricao:
-      'Equipamentos atualizados para identificar erros, falhas intermitentes e problemas de injeção em qualquer veículo nacional ou importado.',
+      'Equipamentos atualizados para identificar erros, falhas intermitentes e problemas de injeção eletrônica. Diagnóstico preciso e correção eficiente para o seu veículo.',
     beneficios,
     icone: '💡',
   },
@@ -67,7 +67,7 @@ export const servicos: Servico[] = [
     titulo: 'Escapamentos',
     resumo: 'Especialistas há mais de 35 anos em escapamentos para todas as marcas.',
     descricao:
-      'Solda, reparo, troca e adaptação de escapamentos com peças nacionais e importadas. Atendimento para particulares com qualidade e garantia.',
+      'Troca e instalação de escapamentos para todas as marcas nacionais. Atendimento com qualidade e garantia.',
     beneficios,
     icone: '🚗',
   },

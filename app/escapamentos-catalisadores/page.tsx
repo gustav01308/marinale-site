@@ -6,7 +6,7 @@ import { generateMetadata as buildMetadata, SITE_URL } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Escapamentos e Catalisadores em Florianópolis | Mecânica Marinale',
   description:
-    'Especialistas em escapamentos e catalisadores em Florianópolis há mais de 35 anos. Grande estoque, soldas com garantia e atendimento ao consumidor final.',
+    'Especialistas em escapamentos e catalisadores em Florianópolis há mais de 35 anos. Grande estoque de peças nacionais, instalação com garantia e atendimento no mesmo dia.',
   path: '/escapamentos-catalisadores',
 });
 
