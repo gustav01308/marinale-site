@@ -9,7 +9,7 @@ const SLUG = 'escapamentos';
 export const metadata: Metadata = buildMetadata({
   title: 'Escapamentos em Florianópolis | Mecânica Marinale',
   description:
-    'Solda, reparo e troca de escapamentos em Florianópolis. Mais de 35 anos de especialidade, peças nacionais e importadas. Agende pelo WhatsApp.',
+    'Troca e instalação de escapamentos em Florianópolis. Especialistas há mais de 35 anos, peças nacionais e atendimento com garantia. Agende pelo WhatsApp.',
   path: `/servicos/${SLUG}`,
 });
 

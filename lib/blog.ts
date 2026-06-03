@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
 ## Por que não adiar
 Um escapamento comprometido pode danificar o catalisador, aumentar o consumo de combustível e até gerar autuações ambientais.
 
-Na Mecânica Marinale fazemos diagnóstico rápido e indicamos a melhor solução: solda, reparo ou troca completa.`,
+Na Mecânica Marinale fazemos diagnóstico rápido e indicamos a melhor solução: troca de peças com qualidade e garantia.`,
   },
   {
     slug: 'catalisador-para-que-serve',

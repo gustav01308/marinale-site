@@ -78,7 +78,7 @@ export default function EscapamentosCatalisadoresPage() {
                 icon: '🔄',
                 titulo: 'Troca de escapamento',
                 texto:
-                  'Amplo estoque de escapamentos para todas as marcas e modelos — nacionais e importados. Instalação no mesmo dia.',
+                  'Amplo estoque de escapamentos para todas as marcas nacionais. Instalação no mesmo dia com garantia.',
               },
               {
                 icon: '♻️',
