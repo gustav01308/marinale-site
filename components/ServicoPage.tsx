@@ -70,7 +70,7 @@ export default function ServicoPage({ servico }: Props) {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <CTAButton buttonLocation={`servico-${servico.slug}`} size="lg">
-                Agendar este serviço
+                Conversar no WhatsApp
               </CTAButton>
               <Link
                 href="/servicos"
@@ -106,7 +106,7 @@ export default function ServicoPage({ servico }: Props) {
                 buttonLocation={`servico-${servico.slug}-aside`}
                 fullWidth
               >
-                Falar agora
+                Conversar agora
               </CTAButton>
             </div>
             <div className="mt-8 overflow-hidden rounded-xl">

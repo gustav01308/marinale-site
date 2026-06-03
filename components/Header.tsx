@@ -85,7 +85,7 @@ export default function Header() {
             {BUSINESS_INFO.phoneDisplay}
           </a>
           <CTAButton buttonLocation="header-desktop" size="sm">
-            AGENDAR
+            WHATSAPP
           </CTAButton>
         </div>
 
@@ -135,7 +135,7 @@ export default function Header() {
             })}
             <li className="mt-3">
               <CTAButton buttonLocation="header-mobile" fullWidth>
-                AGENDAR NO WHATSAPP
+                CONVERSAR NO WHATSAPP
               </CTAButton>
             </li>
             <li className="mt-2 text-center">

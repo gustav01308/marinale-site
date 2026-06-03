@@ -52,7 +52,7 @@ export default function EscapamentosCatalisadoresPage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <CTAButton buttonLocation="escapamentos-hero" size="lg">
-              Solicitar orçamento
+              Conversar no WhatsApp
             </CTAButton>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function EscapamentosCatalisadoresPage() {
 
           <div className="mt-12 text-center">
             <CTAButton buttonLocation="escapamentos-servicos-cta" size="lg">
-              Agendar serviço
+              Conversar no WhatsApp
             </CTAButton>
           </div>
         </div>

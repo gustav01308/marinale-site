@@ -49,7 +49,7 @@ export default function HomePage() {
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <CTAButton buttonLocation="hero-home" size="lg">
-                  AGENDAR NO WHATSAPP
+                  CONVERSAR NO WHATSAPP
                 </CTAButton>
                 <Link
                   href="/servicos"
@@ -97,7 +97,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-8">
               <CTAButton buttonLocation="home-diferenciais" size="lg">
-                AGENDAR NO WHATSAPP
+                CONVERSAR NO WHATSAPP
               </CTAButton>
             </div>
           </div>
@@ -123,7 +123,7 @@ export default function HomePage() {
               Não encontrou o que procura? Fale conosco!
             </p>
             <CTAButton buttonLocation="servicos-home" size="lg">
-              AGENDAR NO WHATSAPP
+              CONVERSAR NO WHATSAPP
             </CTAButton>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function HomePage() {
                 </p>
                 <div className="mt-5 flex flex-col gap-3">
                   <CTAButton buttonLocation="mapa-cta" size="lg" fullWidth>
-                    AGENDAR NO WHATSAPP
+                    CONVERSAR NO WHATSAPP
                   </CTAButton>
                   <a
                     href="https://maps.google.com/?q=Rua+Lauro+Linhares+1693+Trindade+Florianopolis+SC"

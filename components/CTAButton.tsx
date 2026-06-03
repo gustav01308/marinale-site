@@ -33,7 +33,7 @@ const sizeStyles: Record<NonNullable<CTAButtonProps['size']>, string> = {
 
 export default function CTAButton({
   buttonLocation,
-  children = 'Agendar no WhatsApp',
+  children = 'Conversar no WhatsApp',
   message,
   variant = 'primary',
   size = 'md',
