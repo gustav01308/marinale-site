@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 // URL base do site — usada para construir canonicals absolutas e Open Graph
 export const SITE_URL = 'https://marinale.com.br';
 export const SITE_NAME = 'Mecânica Marinale';
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/imagens/og-image.jpg`;
 
 export type PageSeo = {
   title: string;

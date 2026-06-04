@@ -264,34 +264,26 @@ export default function HomePage() {
 function BlogCard({ post }: { post: BlogPost }) {
   const dataFormatada = new Date(post.date + 'T12:00:00').toLocaleDateString('pt-BR');
   return (
-    <article className="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-shadow duration-200 hover:shadow-md">
-      <div className="flex h-44 items-center justify-center bg-gray-200">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-12 w-12 text-gray-400" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-        </svg>
-      </div>
-
-      <div className="flex flex-1 flex-col p-6">
-        <span className="font-titulo text-xs uppercase tracking-widest text-marinale-verde">
-          {post.category}
-        </span>
-        <h3 className="mt-2 text-xl leading-snug">
-          <Link href={`/blog/${post.slug}`} className="hover:text-marinale-verde transition-colors">
-            {post.title}
-          </Link>
-        </h3>
-        <p className="mt-2 flex-1 font-corpo text-sm text-gray-600">
-          {post.description}
-        </p>
-        <div className="mt-4 flex items-center justify-between">
-          <span className="font-corpo text-xs text-gray-400">{dataFormatada}</span>
-          <Link
-            href={`/blog/${post.slug}`}
-            className="font-titulo text-sm font-semibold uppercase text-marinale-azul hover:underline"
-          >
-            Ler mais →
-          </Link>
-        </div>
+    <article className="flex flex-col rounded-xl border-t-4 border-marinale-verde bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md">
+      <span className="font-titulo text-xs uppercase tracking-widest text-marinale-verde">
+        {post.category}
+      </span>
+      <h3 className="mt-2 text-xl leading-snug">
+        <Link href={`/blog/${post.slug}`} className="hover:text-marinale-verde transition-colors">
+          {post.title}
+        </Link>
+      </h3>
+      <p className="mt-3 flex-1 font-corpo text-sm text-gray-600">
+        {post.description}
+      </p>
+      <div className="mt-5 flex items-center justify-between border-t border-gray-100 pt-4">
+        <span className="font-corpo text-xs text-gray-400">{dataFormatada}</span>
+        <Link
+          href={`/blog/${post.slug}`}
+          className="font-titulo text-sm font-semibold uppercase text-marinale-azul hover:underline"
+        >
+          Ler mais →
+        </Link>
       </div>
     </article>
   );

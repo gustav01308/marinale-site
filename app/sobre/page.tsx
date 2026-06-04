@@ -21,10 +21,7 @@ export default function SobrePage() {
           <h1 className="mt-4">Sobre a Mecânica Marinale</h1>
           <div className="mt-6 space-y-4 font-corpo text-lg text-gray-700">
             <p>
-              Desde 1989, a Mecânica Marinale atende motoristas de Florianópolis com um compromisso que não muda: fazer o certo pelo cliente, sempre.
-            </p>
-            <p>
-              Somos uma oficina multimarcas com foco em mecânica geral, escapamentos e catalisadores. Em mais de 35 anos de estrada, construímos nossa reputação no boca a boca — clientes que chegaram uma vez e nunca mais foram embora.
+              Na Marinale, oferecemos serviços de mecânica automotiva com qualidade, transparência e compromisso. Trabalhamos com manutenção preventiva e corretiva, freios, suspensão, direção, motor, escapamentos, troca de óleo e muito mais. Nossa missão é garantir a segurança e a tranquilidade dos nossos clientes, sempre com atendimento honesto e soluções eficientes para cada veículo.
             </p>
           </div>
 
@@ -39,26 +36,37 @@ export default function SobrePage() {
           </div>
 
           <div className="mt-12">
-            <h2 className="text-2xl">Como trabalhamos</h2>
-            <p className="mt-3 font-corpo text-lg text-gray-700">
-              Sabemos que levar o carro à oficina gera desconfiança. Por isso criamos um processo transparente, do início ao fim:
-            </p>
-            <ol className="mt-6 space-y-4">
+            <h2 className="text-2xl">Por que escolher a Marinale?</h2>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {[
-                'Escutamos o que você percebeu no carro',
-                'Abrimos sua ficha e enviamos o carro para diagnóstico',
-                'Enviamos fotos e vídeos do que encontramos',
-                'Você recebe orçamento detalhado e só aprovando executamos',
-                'Entregamos com garantia e pós-venda profissional',
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4 font-corpo text-gray-700">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-marinale-amarelo font-titulo text-sm font-bold text-marinale-azul">
-                    {i + 1}
-                  </span>
+                'Atendimento transparente',
+                'Profissionais qualificados',
+                'Peças de qualidade',
+                'Serviço com garantia',
+                'Agilidade na entrega',
+                'Preço justo',
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-3 font-corpo text-lg text-gray-700"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="h-6 w-6 shrink-0 text-marinale-verde"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                   {item}
                 </li>
               ))}
-            </ol>
+            </ul>
           </div>
 
           <div className="mt-10">

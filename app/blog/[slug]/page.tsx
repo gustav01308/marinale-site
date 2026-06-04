@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import CTAButton from '@/components/CTAButton';
-import { generateMetadata as buildMetadata, SITE_URL } from '@/lib/seo';
+import { generateMetadata as buildMetadata, SITE_URL, DEFAULT_OG_IMAGE } from '@/lib/seo';
 import { getAllSlugs, getPostBySlug } from '@/lib/blog';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -48,10 +48,10 @@ export default async function BlogPostPage({ params }: Props) {
     publisher: {
       '@type': 'Organization',
       name: 'Mecânica Marinale',
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo-marinale.png` },
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/imagens/Marinale-logo.png` },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${post.slug}` },
-    image: `${SITE_URL}${post.cover}`,
+    image: DEFAULT_OG_IMAGE,
   };
 
   return (
